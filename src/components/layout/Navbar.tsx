@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X, Calendar, Search, ArrowRight, User, Mountain, GitCompare } from 'lucide-react';
+import { Menu, X, Search, Mountain, GitCompare } from 'lucide-react';
 import { useCompareStore } from '@/store/useCompareStore';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';

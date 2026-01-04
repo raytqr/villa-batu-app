@@ -46,9 +46,7 @@ export function Testimonials() {
                             </div>
 
                             {/* Comment */}
-                            <p className="text-fog-600 mb-6 leading-relaxed">
-                                "{testimonial.comment}"
-                            </p>
+                            <p className="text-fog-600 italic mb-6 text-lg">&quot;{testimonial.comment}&quot;</p>
 
                             {/* Author */}
                             <div className="flex items-center gap-3 pt-4 border-t border-fog-100">

@@ -4,11 +4,11 @@ import { Home, Calendar, DollarSign, Users, TrendingUp, Eye, ArrowUpRight, Arrow
 import { villas } from '@/lib/mock-data';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AdminDashboard() {
     const totalVillas = villas.length;
     const recommendedCount = villas.filter(v => v.isRecommended).length;
-    const totalCapacity = villas.reduce((sum, v) => sum + v.capacity, 0);
     const avgPrice = villas.reduce((sum, v) => sum + v.price, 0) / villas.length;
     const totalBookings = villas.reduce((sum, v) => sum + v.bookedDates.length, 0);
 
@@ -99,7 +99,7 @@ export default function AdminDashboard() {
                             <div key={villa.id} className="flex items-center justify-between p-4 hover:bg-fog-50 transition-colors">
                                 <div className="flex items-center gap-4">
                                     <div className="w-16 h-12 bg-fog-200 rounded-xl overflow-hidden">
-                                        <img src={villa.images[0]} alt={villa.name} className="w-full h-full object-cover" />
+                                        <Image src={villa.images[0]} alt={villa.name} width={64} height={48} className="w-full h-full object-cover" unoptimized />
                                     </div>
                                     <div>
                                         <p className="font-semibold text-fog-800">{villa.name}</p>
@@ -127,7 +127,7 @@ export default function AdminDashboard() {
                         {villas.filter(v => v.isRecommended).slice(0, 4).map((villa) => (
                             <div key={villa.id} className="flex items-center gap-3 p-3 bg-fog-50 rounded-xl">
                                 <div className="w-12 h-12 bg-fog-200 rounded-lg overflow-hidden shrink-0">
-                                    <img src={villa.images[0]} alt={villa.name} className="w-full h-full object-cover" />
+                                    <Image src={villa.images[0]} alt={villa.name} width={48} height={48} className="w-full h-full object-cover" unoptimized />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <p className="font-medium text-fog-800 truncate">{villa.name}</p>

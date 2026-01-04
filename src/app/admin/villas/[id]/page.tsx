@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
     ChevronLeft,
     Save,
     Upload,
     X,
-    Plus,
     Check,
     Trash2
 } from 'lucide-react';
@@ -17,7 +17,6 @@ import { cn } from '@/lib/utils';
 
 export default function AdminVillaEditPage() {
     const params = useParams();
-    const router = useRouter();
     const villa = villas.find(v => v.id === params.id);
 
     const [formData, setFormData] = useState({
@@ -199,7 +198,12 @@ export default function AdminVillaEditPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {villa.images.map((image, index) => (
                             <div key={index} className="relative aspect-video rounded-xl overflow-hidden group">
-                                <img src={image} alt={`Photo ${index + 1}`} className="w-full h-full object-cover" />
+                                <Image
+                                    src={image}
+                                    alt={`Photo ${index + 1}`}
+                                    fill
+                                    className="object-cover"
+                                />
                                 <button className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                                     <X className="w-4 h-4" />
                                 </button>
@@ -344,7 +348,7 @@ export default function AdminVillaEditPage() {
                             <label className="block text-sm font-medium text-fog-700 mb-2">Tipe View</label>
                             <select
                                 value={formData.viewType}
-                                onChange={(e) => setFormData({ ...formData, viewType: e.target.value as any })}
+                                onChange={(e) => setFormData({ ...formData, viewType: e.target.value as "mountain" | "city" | "garden" | "rice-field" })}
                                 className="input-field"
                             >
                                 <option value="mountain">Gunung</option>

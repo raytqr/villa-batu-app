@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, DollarSign, Percent, Save } from 'lucide-react';
+import {
+    DollarSign, Calendar, Save
+} from 'lucide-react';
 import { villas } from '@/lib/mock-data';
 import { formatPrice, cn } from '@/lib/utils';
 import { CustomDropdown } from '@/components/ui/CustomDropdown';

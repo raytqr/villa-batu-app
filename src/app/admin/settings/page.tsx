@@ -11,7 +11,6 @@ import {
     Facebook,
     Instagram,
     Youtube,
-    Image as ImageIcon,
     Shield
 } from 'lucide-react';
 

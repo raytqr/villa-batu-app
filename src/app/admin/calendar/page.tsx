@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Check, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { villas } from '@/lib/mock-data';
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,7 @@ export default function AdminCalendarPage() {
         villas[0].bookedDates
     );
 
-    const villa = villas.find(v => v.id === selectedVilla);
+
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();

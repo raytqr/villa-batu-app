@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FilterBar } from '@/components/villa/FilterBar';
 import { VillaCard } from '@/components/villa/VillaCard';
@@ -8,7 +8,7 @@ import { useFilterStore } from '@/store/useFilterStore';
 import { villas } from '@/lib/mock-data';
 import { Search, SortDesc } from 'lucide-react';
 
-export default function SearchPage() {
+function SearchContent() {
     const searchParams = useSearchParams();
     const { priceRange, hasPool, viewType, minCapacity, area } = useFilterStore();
 
@@ -122,5 +122,13 @@ export default function SearchPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function SearchPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen pt-20 flex items-center justify-center text-fog-500">Loading...</div>}>
+            <SearchContent />
+        </Suspense>
     );
 }

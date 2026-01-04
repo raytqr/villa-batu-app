@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useBookingStore } from '@/store/useBookingStore';
 import { formatPrice } from '@/lib/utils';
-import { Calendar, Download, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
-import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay } from 'date-fns';
+import {
+    DollarSign, TrendingUp, TrendingDown, Download
+} from 'lucide-react';
+import { format } from 'date-fns';
 import { id as idLocale } from 'date-fns/locale';
 
 export default function AdminReportsPage() {

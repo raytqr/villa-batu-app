@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {
     SlidersHorizontal,
     Calendar,
-    Users,
     Waves,
     Mountain,
     Building,
@@ -18,11 +17,7 @@ import { areas } from '@/lib/mock-data';
 import { Villa } from '@/lib/types';
 import { CustomDropdown } from '@/components/ui/CustomDropdown';
 
-interface FilterBarProps {
-    onFilter?: () => void;
-}
-
-export function FilterBar({ onFilter }: FilterBarProps) {
+export function FilterBar() {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const {
         checkIn,

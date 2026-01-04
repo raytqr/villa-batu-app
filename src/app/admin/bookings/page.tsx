@@ -7,7 +7,7 @@ import { villas } from '@/lib/mock-data';
 import { formatPrice } from '@/lib/utils';
 import {
     Search, Filter, CheckCircle, XCircle, Clock,
-    MoreHorizontal, Edit, Trash2, Phone, Calendar as CalendarIcon,
+    Edit, Calendar as CalendarIcon,
     FileText, User, MessageCircle
 } from 'lucide-react';
 import { format } from 'date-fns';
@@ -81,8 +81,8 @@ export default function AdminBookingsPage() {
                             key={status}
                             onClick={() => setStatusFilter(status)}
                             className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-colors ${statusFilter === status
-                                    ? 'bg-pine-500 text-white'
-                                    : 'bg-fog-100 text-fog-600 hover:bg-fog-200'
+                                ? 'bg-pine-500 text-white'
+                                : 'bg-fog-100 text-fog-600 hover:bg-fog-200'
                                 }`}
                         >
                             {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -129,7 +129,7 @@ export default function AdminBookingsPage() {
                                         </div>
                                         {booking.notes && (
                                             <p className="text-sm text-fog-500 italic bg-fog-50 p-2 rounded-lg inline-block">
-                                                "{booking.notes}"
+                                                &quot;{booking.notes}&quot;
                                             </p>
                                         )}
                                     </div>

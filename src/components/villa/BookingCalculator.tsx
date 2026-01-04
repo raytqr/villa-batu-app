@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Calendar, Minus, Plus, Check, MessageCircle, ExternalLink, User, Phone, Mail } from 'lucide-react';
+import { Calendar, Minus, Plus, Check, MessageCircle, User, Phone, Mail } from 'lucide-react';
 import { Villa, AddOn } from '@/lib/types';
 import { addOns as allAddOns, WHATSAPP_NUMBER } from '@/lib/mock-data';
-import { formatPrice, generateWhatsAppLink, calculateNights } from '@/lib/utils';
+import { formatPrice, calculateNights } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 import { useCompareStore } from '@/store/useCompareStore';
 import { useBookingStore } from '@/store/useBookingStore';

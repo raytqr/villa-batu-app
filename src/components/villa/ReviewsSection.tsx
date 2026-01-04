@@ -60,7 +60,7 @@ export function ReviewsSection({ villaId, rating, reviewCount }: ReviewsSectionP
                             </div>
                         </div>
                         <p className="text-fog-600 leading-relaxed mb-4">
-                            "{review.comment}"
+                            &quot;{review.comment}&quot;
                         </p>
                         <div className="flex items-center gap-2 text-sm text-fog-400 hover:text-fog-600 cursor-pointer w-fit">
                             <ThumbsUp className="w-4 h-4" />

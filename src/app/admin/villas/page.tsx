@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Plus, Search, Edit, Trash2, Eye, Star, ToggleLeft, ToggleRight } from 'lucide-react';
 import { villas } from '@/lib/mock-data';
-import { formatPrice, cn } from '@/lib/utils';
+import { formatPrice } from '@/lib/utils';
 
 export default function AdminVillasPage() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -77,8 +78,13 @@ export default function AdminVillasPage() {
                                     {/* Villa Info */}
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-16 h-12 bg-fog-200 rounded-lg overflow-hidden shrink-0">
-                                                <img src={villa.images[0]} alt={villa.name} className="w-full h-full object-cover" />
+                                            <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-fog-100">
+                                                <Image
+                                                    src={villa.images[0]}
+                                                    alt={villa.name}
+                                                    fill
+                                                    className="object-cover"
+                                                />
                                             </div>
                                             <div>
                                                 <p className="font-medium text-fog-800">{villa.name}</p>

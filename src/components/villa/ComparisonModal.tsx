@@ -86,7 +86,7 @@ export function ComparisonModal() {
                                         <Star className="w-12 h-12 text-fog-300" />
                                     </div>
                                     <h3 className="text-xl font-semibold text-fog-800 mb-2">Belum ada villa</h3>
-                                    <p className="text-fog-500 mb-6">Klik tombol "Compare" pada villa untuk menambahkan</p>
+                                    <p className="text-fog-500 mb-6">Klik tombol &quot;Compare&quot; pada villa untuk menambahkan</p>
                                     <button
                                         onClick={closeModal}
                                         className="btn-primary"
