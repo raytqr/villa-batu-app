@@ -1,27 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F9FA;
+  --foreground: #212529;
+  --pine-500: #2D5A27;
+  --pine-600: #1E4620;
+  --earth-500: #8B6914;
+  --fog-50: #F8F9FA;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f1419;
+    --foreground: #F8F9FA;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    color: var(--foreground);
+    background: var(--background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+
+  /* Glass effect cards */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-glass;
+  }
+
+  .glass-card-dark {
+    @apply bg-fog-800/80 backdrop-blur-lg border border-fog-700/30 shadow-glass;
+  }
+
+  /* Premium button styles */
+  .btn-primary {
+    @apply bg-pine-500 hover:bg-pine-600 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-earth-500 hover:bg-earth-600 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300;
+  }
+
+  .btn-outline {
+    @apply border-2 border-pine-500 text-pine-500 hover:bg-pine-500 hover:text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300;
+  }
+
+  /* Card styles */
+  .villa-card {
+    @apply bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-fog-300 bg-white text-fog-800 focus:border-pine-500 focus:ring-2 focus:ring-pine-500/20 outline-none transition-all duration-200;
+  }
+
+  /* Custom Select Dropdown */
+  .select-field {
+    @apply w-full px-4 py-3 rounded-xl border border-fog-300 bg-white text-fog-800 focus:border-pine-500 focus:ring-2 focus:ring-pine-500/20 outline-none transition-all duration-200 cursor-pointer appearance-none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  .select-field option {
+    @apply py-2 px-4 bg-white text-fog-800;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-pine {
+    @apply bg-pine-50 text-pine-600;
+  }
+
+  .badge-earth {
+    @apply bg-earth-50 text-earth-600;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Gradient overlays */
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60;
+  }
+
+  /* Floating action button for mobile */
+  .fab {
+    @apply fixed bottom-6 left-4 right-4 md:hidden z-50;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Glassmorphism */
+  .backdrop-glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smooth image transitions */
+  .img-hover-zoom {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .img-hover-zoom:hover {
+    @apply scale-110;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-pine-500 to-earth-500 bg-clip-text text-transparent;
   }
 }
